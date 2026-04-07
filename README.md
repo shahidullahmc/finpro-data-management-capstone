@@ -67,7 +67,7 @@ Delivered interactive dashboards for:
 ---
 
 ## Tableau Public Dashboards
-(Insert your links here)
+https://public.tableau.com/views/shahidullah_finpro_workbook/Story3?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 - **Customer & Branch Performance Dashboard:**  
 - **Country‑Wise Transaction Analysis:**  
