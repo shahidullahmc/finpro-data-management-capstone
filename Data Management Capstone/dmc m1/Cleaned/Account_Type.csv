@@ -1,0 +1,8 @@
+ID,AccountType
+1,Savings
+2,Current
+3,Overdraft
+4,Checking
+5,Recurring deposit account
+6,Salary account
+7,Fixed deposit account

@@ -1,0 +1,31 @@
+SET @key_str = SHA2(\'My secret passphrase\' 512); wrong
+SET @key_str = SHA2('My secret passphrase', 512);
+===================================================================
+To encrypt:
+ALTER TABLE customer_data MODIFY COLUMN AccountId varbinary(255);
+-----------------------------------------
+UPDATE finpro.customer_data
+SET Email = AES_ENCRYPT(Email, @key_str);
+===================================================================
+Issue fixing
+SELECT TABLE_NAME, COLUMN_NAME, CONSTRAINT_NAME
+FROM information_schema.KEY_COLUMN_USAGE
+WHERE CONSTRAINT_NAME = 'acct';
+------------------------------------
+ALTER TABLE transaction_data DROP FOREIGN KEY acct;
+-----------------------------------------------------------
+ALTER TABLE customer_data MODIFY COLUMN AccountId VARBINARY(255);
+========================================================================
+UPDATE customer_data
+SET AccountId = AES_ENCRYPT(AccountId, @key_str);
+=======================================================================
+SELECT AES_DECRYPT(AccountId, @key_str)
+FROM customer_data;
+--------------------------------------
+SELECT cast(AES_DECRYPT(AccountId , @key_str) as char(255)) FROM customer_data;
+-------------------------------------------
+SELECT CAST(AES_DECRYPT(AccountId, @key_str) AS CHAR(255))
+FROM customer_data;
+
+
+
